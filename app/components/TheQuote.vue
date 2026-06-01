@@ -10,7 +10,7 @@ const { data: quote, pending, error } = await useFetch(() => `https://dummyjson.
     <p v-if="pending">
       Fetching...
     </p>
-    <pre v-else-if="error">Could not load quote: {{ error.data }}</pre>
+    <ProsePre v-else-if="error">Could not load quote: {{ error.data }}</ProsePre>
     <figure
       v-else
       class="bg-(--ui-bg-elevated) border border-(--ui-border-muted) rounded-lg p-4 my-6 max-w-xl text-lg"

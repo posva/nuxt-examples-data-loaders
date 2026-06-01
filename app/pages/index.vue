@@ -10,6 +10,6 @@ const { data } = await useFetch('/api/hello')
         value="/api/hello"
       />:
     </p>
-    <pre>{{ data }}</pre>
+    <ProsePre>{{ data }}</ProsePre>
   </div>
 </template>

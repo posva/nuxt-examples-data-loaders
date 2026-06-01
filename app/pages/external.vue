@@ -16,7 +16,7 @@ const canDecrease = computed(() => id.value > 1)
 <template>
   <div class="flex flex-col gap-2">
     <p class="flex items-center gap-2">
-      Result of <code>https://dummyjson.com/products/</code>
+      Result of <ProseCode>https://dummyjson.com/products/</ProseCode>
       <UInput
         v-model="id"
         type="number"
@@ -37,8 +37,8 @@ const canDecrease = computed(() => id.value > 1)
     <p v-if="pending">
       Fetching...
     </p>
-    <pre v-else-if="error">{{ error }}</pre>
-    <pre v-else>{{ product }}</pre>
+    <ProsePre v-else-if="error">{{ error }}</ProsePre>
+    <ProsePre v-else>{{ product }}</ProsePre>
     <NuxtLink
       class="underline"
       to="/"
