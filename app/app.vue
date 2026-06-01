@@ -16,12 +16,28 @@ const nav = [
     to: '/',
   },
   {
-    label: 'External',
-    to: '/external',
+    label: 'Colada · Hello',
+    to: '/colada',
   },
   {
-    label: 'Component',
-    to: '/component',
+    label: 'Colada · Product',
+    to: '/colada/products/1',
+  },
+  {
+    label: 'Colada · Quote',
+    to: '/colada/quotes/1',
+  },
+  {
+    label: 'Basic · Hello',
+    to: '/basic',
+  },
+  {
+    label: 'Basic · Product',
+    to: '/basic/products/1',
+  },
+  {
+    label: 'Basic · Quote',
+    to: '/basic/quotes/1',
   },
 ]
 

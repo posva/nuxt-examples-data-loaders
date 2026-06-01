@@ -1,5 +1,6 @@
 node_modules
 coverage
+dev.log
 npm-debug.log
 yarn-error.log
 .nyc_output
@@ -19,7 +20,6 @@ vite.config.panel.ts.timestamp-*.mjs
 vite.config.shared.ts.timestamp-*.mjs
 docs/api
 .osgrep
-ralph.sh
 .tsc-types
 .cursor
 .claude/worktrees

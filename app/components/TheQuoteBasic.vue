@@ -1,18 +1,17 @@
-<script setup>
-const props = defineProps({
-  id: Number,
-})
-const { data: quote, pending, error } = await useFetch(() => `https://dummyjson.com/quotes/${props.id}`)
+<script setup lang="ts">
+import { useQuote } from '~/loaders/basic/quote'
+
+const { data: quote, isLoading, error } = useQuote()
 </script>
 
 <template>
   <div>
-    <p v-if="pending">
+    <p v-if="isLoading && !quote">
       Fetching...
     </p>
-    <ProsePre v-else-if="error">Could not load quote: {{ error.data }}</ProsePre>
+    <ProsePre v-else-if="error">Could not load quote: {{ error }}</ProsePre>
     <figure
-      v-else
+      v-else-if="quote"
       class="bg-(--ui-bg-elevated) border border-(--ui-border-muted) rounded-lg p-4 my-6 max-w-xl text-lg"
     >
       <blockquote class="m-4">
