@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     // Order matters: pinia must be registered before pinia-colada.
     '@pinia/nuxt',
     '@pinia/colada-nuxt',
+    '@vercel/analytics',
   ],
 
   css: ['~/assets/css/main.css'],
