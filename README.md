@@ -32,16 +32,16 @@ child component) are implemented under `/colada` and `/basic`.
 ## Why data loaders over `useFetch` / `useAsyncData`
 
 - **Ready before render.** Loaders run in a navigation guard, so data is available on first
-  paint — no loading flash, no `await` in `setup`.
+  paint — no loading flash, no `await` in `setup`, can be used to decide **what** to render (e.g. dynamic layouts).
 - **Navigation-aware.** Navigation waits for the data (or opt out with `lazy`), and a thrown
   error can abort the navigation just like a route guard.
 - **Route-driven.** The fetch input comes from the route (`to.params` / `to.query`); navigate
-  to refetch. Tracked params mean it only refetches when the data actually depends on them.
+  to refetch. Tracked params mean it only refetches when the data actually depends on them (for Pinia Colada). Promotes best practices for data fetching in relation to the route.
 - **Shareable & deduplicated.** Call the same loader composable in any component — requests are
   deduplicated and the data is shared, no prop drilling.
-- **Cancellation built in.** Each loader gets an `AbortSignal` that aborts the request when the
-  navigation changes.
-- **One consistent API**, independent of the underlying fetching strategy.
+- **Cancellation built in.** Each loader gets an `AbortSignal` that aborts when
+the navigation changes. Use it to cancel in-flight requests for cancelled
+navigations.
 
 ### With [Pinia Colada](https://pinia-colada.esm.dev)
 
