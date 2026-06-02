@@ -1,6 +1,8 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
+  compatibilityDate: '2026-06-02',
+
   modules: [
     '@nuxt/ui',
     // Pinia + Pinia Colada power the `defineColadaLoader()` data loader.

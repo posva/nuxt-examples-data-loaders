@@ -1,4 +1,8 @@
 <script setup lang="ts">
+// `PiniaColadaProdDevtools` (instead of `PiniaColadaDevtools`) keeps the Colada
+// devtools in production builds too — handy for this example deployment.
+import { PiniaColadaProdDevtools as PiniaColadaDevtools } from '@pinia/colada-devtools'
+
 const dir = 'features/data-loaders'
 const github = `https://github.com/nuxt/examples/tree/main/examples/${dir}`
 
@@ -64,26 +68,15 @@ useSeoMeta({
         <template #header>
           <div class="flex items-center justify-between">
             <UTooltip text="Open on GitHub">
-              <UButton
-                :to="github"
-                target="_blank"
-                color="neutral"
-                variant="outline"
-                icon="i-simple-icons-github"
-                aria-label="Open on GitHub"
-              />
+              <UButton :to="github" target="_blank" color="neutral" variant="outline" icon="i-simple-icons-github"
+                aria-label="Open on GitHub" />
             </UTooltip>
 
             <Logo :label="title" />
 
             <ClientOnly>
-              <UButton
-                :icon="isDark ? 'i-heroicons-moon-solid' : 'i-heroicons-sun-solid'"
-                color="neutral"
-                variant="outline"
-                aria-label="Toggle color mode"
-                @click="isDark = !isDark"
-              />
+              <UButton :icon="isDark ? 'i-heroicons-moon-solid' : 'i-heroicons-sun-solid'" color="neutral"
+                variant="outline" aria-label="Toggle color mode" @click="isDark = !isDark" />
               <template #fallback>
                 <div class="size-8" />
               </template>
@@ -92,13 +85,8 @@ useSeoMeta({
         </template>
 
         <nav class="mb-4 flex justify-center gap-4 border-b border-default pb-4">
-          <NuxtLink
-            v-for="item of nav"
-            :key="item.label"
-            :to="item.to"
-            class="hover:underline"
-            exact-active-class="text-primary"
-          >
+          <NuxtLink v-for="item of nav" :key="item.label" :to="item.to" class="hover:underline"
+            exact-active-class="text-primary">
             {{ item.label }}
           </NuxtLink>
         </nav>
@@ -110,16 +98,14 @@ useSeoMeta({
         <template #footer>
           <div class="flex items-center justify-between">
             <Logo label="Examples" />
-            <NuxtLink
-              :to="github"
-              target="_blank"
-              class="text-xs opacity-40"
-            >
+            <NuxtLink :to="github" target="_blank" class="text-xs opacity-40">
               {{ dir }}
             </NuxtLink>
           </div>
         </template>
       </UCard>
     </UContainer>
+
+    <PiniaColadaDevtools />
   </UApp>
 </template>
