@@ -21,4 +21,10 @@ export default defineNuxtConfig({
     // Enable Prose components (ProsePre/ProseCode) without @nuxt/content
     prose: true,
   },
+
+  devtools: {
+    timeline: {
+      enabled: true,
+    },
+  },
 })

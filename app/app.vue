@@ -3,16 +3,9 @@
 // devtools in production builds too — handy for this example deployment.
 import { PiniaColadaProdDevtools as PiniaColadaDevtools } from '@pinia/colada-devtools'
 
-const dir = 'features/data-loaders'
-const github = `https://github.com/nuxt/examples/tree/main/examples/${dir}`
-
-// "features/data-fetching" -> "Data Fetching"
-const title = dir
-  .split('/')
-  .pop()!
-  .split('-')
-  .map(word => word[0]!.toUpperCase() + word.slice(1))
-  .join(' ')
+const repo = 'posva/nuxt-examples-data-loaders'
+const github = `https://github.com/${repo}`
+const title = 'Data Loaders'
 
 const nav = [
   {
@@ -54,7 +47,7 @@ const isDark = computed({
 })
 
 useSeoMeta({
-  title: dir,
+  title,
 })
 </script>
 
@@ -99,7 +92,7 @@ useSeoMeta({
           <div class="flex items-center justify-between">
             <Logo label="Examples" />
             <NuxtLink :to="github" target="_blank" class="text-xs opacity-40">
-              {{ dir }}
+              {{ repo }}
             </NuxtLink>
           </div>
         </template>
